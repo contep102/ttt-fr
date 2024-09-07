@@ -25,7 +25,10 @@ export const AuthContextProvider = ({ children }) => {
 
   const login = async (inputs) => {
     try {
-      const res = await axios.post("http://localhost:6001/auth/login", inputs);
+      const res = await axios.post(
+        "https://ttt-bc.onrender.com/auth/login",
+        inputs
+      );
       localStorage.setItem("userToken", res.data.token);
       localStorage.setItem("userId", res.data.user._id);
       localStorage.setItem("userName", res.data.user.username);
@@ -40,7 +43,7 @@ export const AuthContextProvider = ({ children }) => {
   const register = async (inputs) => {
     try {
       const res = await axios.post(
-        "http://localhost:6001/auth/register",
+        "https://ttt-bc.onrender.com/auth/register",
         inputs
       );
       console.log(res);
